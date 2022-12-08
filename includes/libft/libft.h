@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 12:20:07 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/08 21:42:40 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/08 21:46:21 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 # include <unistd.h>
 # include <stdlib.h>
