@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/07 23:15:56 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:12:58 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	rotate(t_list **x, char c);
 void	rr(t_list **a, t_list **b);
 void	reverse_rotate(t_list **x, char c);
 void	rrr(t_list **a, t_list **b);
-t_bool	check_arg(int argc, char **argv);
-t_bool	check_onlydigit(char *arg);
+int		check_only_int(char **arg, int index);
 
 #endif

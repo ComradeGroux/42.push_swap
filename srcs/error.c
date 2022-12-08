@@ -6,62 +6,34 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/08 14:42:46 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:12:46 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_bool	check_isnotdouble(int arr[], int len)
+int	check_only_int(char **arg, int index)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (i < len)
+	if (!arg)
+		return (0);
+	while (arg[index])
 	{
-		j = i + 1;
-		while (j < len)
+		if (ft_isnegpos(arg[index][0]))
+			i = 1;
+		else
+			i = 0;
+		while (arg[index][i])
 		{
-			if (arr[i] == arr[j])
-				return (FALSE);
-			j++;
+			if (!ft_isdigit(arg[index][i]))
+				return (0);
+			i++;
 		}
-		i++;
+		if (ft_atol(arg[index]) > INT_MAX || ft_atol(arg[index]) < INT_MIN)
+			return (0);
+		index++;
 	}
-	return (TRUE);
-}
-
-t_bool	check_onlydigit(char *arg)
-{
-	int	i;
-
-	i = 0;
-	while (arg[i])
-	{
-		if (!ft_isdigit(arg[i]) && !ft_isspace(arg[i]) && !ft_isnegpos(arg[i]))
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
-}
-
-t_bool	check_arg(int argc, char **argv)
-{
-	int	i;
-	int	*arr;
-
-	i = 0;
-	if (argc == 2)
-		if (!check_onlydigit(argv[1]))
-			return (FALSE);
-	else
-	{
-		while (++i < argc)
-		{
-			if (!check_onlydigit(argv[i]))
-				return (FALSE);
-		}
-	}
-	return (FALSE);
+	return (1);
 }
