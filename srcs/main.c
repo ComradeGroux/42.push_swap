@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/08 23:45:58 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/09 00:02:47 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,31 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	**a;
-	t_list	**b;
+	(void)argc;
+	char	**tmp;
 
-	if (argc == 1)
-		return (print_error("Error"));
-	else if (argc == 2)
-		if (str_to_list(ft_split(argv[1], ' '), a))
-			return (1);
-	else
-	{
-		if (!check_only_int(argv, 1))
-			return (print_error("Error"));
-	}
+	tmp = ft_split(argv[1], ' ');
+	ft_printf("\n%i\n", check_duplicate(tmp));
+	ft_free_arr(tmp);
+	// t_list	**a;
+	// t_list	**b;
+	
+	// if (argc == 1)
+	// 	return (print_error("Error"));
+	// else if (argc == 2)
+	// 	if (str_to_list(ft_split(argv[1], ' '), a))
+	// 		return (1);
+	// else
+	// {
+	// 	if (!check_only_int(argv, 1))
+	// 		return (print_error("Error"));
+	// }
 	return (0);
 }
 
 int	str_to_list(char **tmp, t_list **a)
 {
+	(void)a;
 	if (!tmp)
 		return (print_error("Error"));
 	else

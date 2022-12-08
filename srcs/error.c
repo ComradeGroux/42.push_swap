@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/08 23:45:43 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/09 00:03:49 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,47 @@ int	check_only_int(char **arg, int index)
 	return (1);
 }
 
-int	check_duplicate(char *tmp)
+int	check_duplicate(char **arg)
 {
+	int	i;
+	int	j;
+	int	tmp;
+	int	*arr;
 
+	i = 0;
+	while (arg[i])
+		i++;
+	arr = ft_calloc(i, sizeof(int *));
+	if (!arr)
+		return (0);
+	i = 0;
+	while (arg[i])
+	{
+		// arr[i] = (int)ft_calloc(1, sizeof(int));
+		// if (!arr[i])
+		// {
+		// 	//ft_free_arr(arr);
+		// 	return (0);
+		// }
+		arr[i] = ft_atoi(arg[i]);
+		i++;
+	}
+	i = 0;
+	while (arr[i])
+	{
+		tmp = arr[i];
+		ft_printf("%i ", tmp);
+		j = i + 1;
+		while (arr[j])
+		{
+			if (arr[j] == tmp)
+			{
+			//	ft_free_arr(arr);
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
