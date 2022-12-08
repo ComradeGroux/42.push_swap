@@ -6,11 +6,17 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/08 23:12:46 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:45:43 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	print_error(char *str)
+{
+	ft_putendl_fd(str, 2);
+	return (1);
+}
 
 int	check_only_int(char **arg, int index)
 {
@@ -36,4 +42,9 @@ int	check_only_int(char **arg, int index)
 		index++;
 	}
 	return (1);
+}
+
+int	check_duplicate(char *tmp)
+{
+
 }
