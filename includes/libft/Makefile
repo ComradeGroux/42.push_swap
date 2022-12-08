@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/30 14:09:53 by vgroux            #+#    #+#              #
-#    Updated: 2022/12/07 17:42:34 by vgroux           ###   ########.fr        #
+#    Updated: 2022/12/08 22:44:33 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ RM =         rm -f
 
 SRCS =		ft_atoi.c \
 			ft_atod.c \
+			ft_atol.c \
 			ft_bzero.c \
 			ft_calloc.c \
 			ft_free_arr.c \
