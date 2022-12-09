@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/09 12:34:05 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/09 18:49:33 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,23 @@ int	print_error(char *str)
 {
 	ft_putendl_fd(str, 2);
 	return (1);
+}
+
+int	check_arg(char **tmp, int flag)
+{
+	if (!check_only_int(tmp, flag))
+	{
+		if (flag == 0)
+			ft_free_arr(tmp);
+		return (print_error("Error"));
+	}
+	else if (!check_duplicate(tmp, flag))
+	{
+		if (flag == 0)
+			ft_free_arr(tmp);
+		return (print_error("Error"));
+	}
+	return (0);
 }
 
 int	check_only_int(char **arg, int index)
@@ -44,42 +61,30 @@ int	check_only_int(char **arg, int index)
 	return (1);
 }
 
-int	check_duplicate(char **arg, int index)
+int	check_duplicate(char **arg, int i)
 {
-	int	i;
 	int	j;
 	int	tmp;
 	int	*arr;
 	int	len;
 
-	i = index;
-	while (arg[i])
-		i++;
-	arr = ft_calloc(i, sizeof(int *));
+	arr = arr_str_to_int(arg, i);
 	if (!arr)
 		return (0);
-	len = index;
-	while (arg[len])
-	{
-		arr[len] = ft_atoi(arg[len]);
-		len++;
-	}
-	len -= index;
-	i = index;
-	while (i < len)
+	len = arr_len(arg, i);
+	i--;
+	while (++i < len)
 	{
 		tmp = arr[i];
-		j = i + 1;
-		while (arr[j])
+		j = i;
+		while (arr[++j])
 		{
 			if (arr[j] == tmp)
 			{
 				free(arr);
 				return (0);
 			}
-			j++;
 		}
-		i++;
 	}
 	free(arr);
 	return (1);
