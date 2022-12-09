@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/09 00:02:47 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/09 12:35:27 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,54 @@
 
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	char	**tmp;
-
-	tmp = ft_split(argv[1], ' ');
-	ft_printf("\n%i\n", check_duplicate(tmp));
-	ft_free_arr(tmp);
-	// t_list	**a;
-	// t_list	**b;
+	t_list	**a;
+	t_list	**b;
 	
-	// if (argc == 1)
-	// 	return (print_error("Error"));
-	// else if (argc == 2)
-	// 	if (str_to_list(ft_split(argv[1], ' '), a))
-	// 		return (1);
-	// else
-	// {
-	// 	if (!check_only_int(argv, 1))
-	// 		return (print_error("Error"));
-	// }
+	a = NULL;
+	(void)b;
+	if (argc == 1)
+		return (print_error("Error"));
+	else if (argc == 2)
+	{
+		if (arr_to_list(ft_split(argv[1], ' '), a, 0))
+			return (1);
+		// TODO ALGO like "ft_algo(a, b)"
+	}
+	else
+	{
+		if (arr_to_list(argv, a, 1))
+			return (1);
+		if (!check_only_int(argv, 1))
+			return (print_error("Error"));
+		// TODO ALGO like "ft_algo(a, b)"
+	}
 	return (0);
 }
 
-int	str_to_list(char **tmp, t_list **a)
+int	arr_to_list(char **tmp, t_list **a, int flag)
 {
 	(void)a;
 	if (!tmp)
 		return (print_error("Error"));
 	else
 	{
-		if (!check_only_int(tmp, 0))
+		if (!check_only_int(tmp, flag))
+		{
+			if (flag == 0)
+				ft_free_arr(tmp);
 			return (print_error("Error"));
+		}
 		else
 		{
-			if (!check_duplicate(tmp))
+			if (!check_duplicate(tmp, flag))
+			{
+				if (flag == 0)
+					ft_free_arr(tmp);
 				return (print_error("Error"));
+			}
 		}
-		ft_free_arr(tmp);
+		if (flag == 0)
+			ft_free_arr(tmp);
 	}
 	return (0);
 }

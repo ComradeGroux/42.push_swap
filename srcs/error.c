@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/09 00:03:49 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/09 12:34:05 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,47 +44,43 @@ int	check_only_int(char **arg, int index)
 	return (1);
 }
 
-int	check_duplicate(char **arg)
+int	check_duplicate(char **arg, int index)
 {
 	int	i;
 	int	j;
 	int	tmp;
 	int	*arr;
+	int	len;
 
-	i = 0;
+	i = index;
 	while (arg[i])
 		i++;
 	arr = ft_calloc(i, sizeof(int *));
 	if (!arr)
 		return (0);
-	i = 0;
-	while (arg[i])
+	len = index;
+	while (arg[len])
 	{
-		// arr[i] = (int)ft_calloc(1, sizeof(int));
-		// if (!arr[i])
-		// {
-		// 	//ft_free_arr(arr);
-		// 	return (0);
-		// }
-		arr[i] = ft_atoi(arg[i]);
-		i++;
+		arr[len] = ft_atoi(arg[len]);
+		len++;
 	}
-	i = 0;
-	while (arr[i])
+	len -= index;
+	i = index;
+	while (i < len)
 	{
 		tmp = arr[i];
-		ft_printf("%i ", tmp);
 		j = i + 1;
 		while (arr[j])
 		{
 			if (arr[j] == tmp)
 			{
-			//	ft_free_arr(arr);
+				free(arr);
 				return (0);
 			}
 			j++;
 		}
 		i++;
 	}
+	free(arr);
 	return (1);
 }
