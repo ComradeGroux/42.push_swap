@@ -6,16 +6,16 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:37:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/09 19:28:01 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/12 15:44:59 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	init_stack(t_list **a, int arr[], int len)
+int	init_stack(t_stack **a, int arr[], int len)
 {
 	int		i;
-	t_list	*new;
+	t_stack	*new;
 
 	i = 0;
 	if (!arr)
@@ -28,8 +28,8 @@ int	init_stack(t_list **a, int arr[], int len)
 			ft_lstclear(a, free);
 			return (1);
 		}
-		*(int *)new->content = arr[i];
-		ft_printf("%d\t\t%d\t%p\t%p\n", i, *(int *)new->content, new->next, new); //FIXME
+		new->content = arr[i];
+		ft_printf("%d\t\t%d\t%p\t%p\n", i, new->content, new->next, new); //FIXME
 		ft_lstadd_back(a, new);
 		i++;
 	}

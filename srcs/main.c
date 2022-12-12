@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/09 19:27:23 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/12 15:45:20 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	*a;
-	t_list	**b;
+	t_stack	*a;
+	t_stack	**b;
 
 	if (argc == 1)
 		return (print_error("Error"));
-	a = malloc(sizeof(t_list *));
+	a = malloc(sizeof(t_stack *));
 	if (!a)
 		return (1);
-	b = malloc(sizeof(t_list **));
+	b = malloc(sizeof(t_stack **));
 	if (!b)
 	{
 		free(a);
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-int	arr_to_list(char **tmp, t_list **a, int flag)
+int	arr_to_list(char **tmp, t_stack **a, int flag)
 {
 	if (!tmp)
 		return (print_error("Error"));
