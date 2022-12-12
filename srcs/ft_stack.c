@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:59:31 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/12 15:24:35 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/12 17:16:11 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_stack_addback(t_stack **lst, t_stack *new)
 		while (temp->next != NULL)
 			temp = temp->next;
 		new->prev = temp;
+		new->next = NULL;
 		temp->next = new;
 	}
 }
@@ -46,6 +47,7 @@ void	ft_stack_addfront(t_stack **lst, t_stack *new)
 	if (new && lst)
 	{
 		new->next = *lst;
+		new->prev = NULL;
 		*lst = new;
 		new->next->prev = new;
 	}

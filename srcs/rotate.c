@@ -6,33 +6,34 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:18:23 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/07 15:59:22 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/12 17:14:45 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_list **x, char c)
+void	rotate(t_stack **x, char c)
 {
-	ft_lstadd_back(x, (*x)->next);
+	ft_stack_addback(x, (*x)->next);
 	*x = (*x)->next;
+	(*x)->prev = NULL;
 	if (c != '\0')
 		ft_printf("r%c\n", c);
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a, 0);
 	rotate(b, 0);
 	ft_printf("rr\n");
 }
 
-void	reverse_rotate(t_list **x, char c)
+void	reverse_rotate(t_stack **x, char c)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	tmp = *x;
-	ft_lstadd_front(x, ft_lstlast(*x));
+	ft_stack_addfront(x, ft_stack_last(*x));
 	while (tmp->next->next != NULL)
 		tmp = tmp->next;
 	tmp->next = NULL;
@@ -40,7 +41,7 @@ void	reverse_rotate(t_list **x, char c)
 		ft_printf("rr%c\n", c);
 }
 
-void	rrr(t_list **a, t_list **b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a, 0);
 	reverse_rotate(b, 0);

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:37:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/12 15:44:59 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/12 17:20:02 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,13 @@ int	init_stack(t_stack **a, int arr[], int len)
 		return (1);
 	while (i < len)
 	{
-		new = ft_lstnew(malloc(sizeof(int)));
+		new = ft_stack_new(arr[i]);
 		if (!new)
 		{
-			ft_lstclear(a, free);
+			ft_stack_clear(a, free); // TODO ft_stack_clear
 			return (1);
 		}
-		new->content = arr[i];
-		ft_printf("%d\t\t%d\t%p\t%p\n", i, new->content, new->next, new); //FIXME
-		ft_lstadd_back(a, new);
+		ft_stack_addback(a, new);
 		i++;
 	}
 	return (0);
