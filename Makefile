@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 13:09:11 by vgroux            #+#    #+#              #
-#    Updated: 2022/12/12 16:36:28 by vgroux           ###   ########.fr        #
+#    Updated: 2022/12/12 21:05:22 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS_LIST =	main.c \
 			rotate.c \
 			swap.c \
 			ft_stack.c \
+			ft_stack_utils.c \
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LIST}}
 

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:37:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/12 17:20:02 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/12 21:20:59 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ int	init_stack(t_stack **a, int arr[], int len)
 		new = ft_stack_new(arr[i]);
 		if (!new)
 		{
-			ft_stack_clear(a, free); // TODO ft_stack_clear
+			ft_stack_clear(a);
 			return (1);
 		}
+		ft_printf("before\n");
 		ft_stack_addback(a, new);
+		ft_printf("after\n");
 		i++;
 	}
 	return (0);

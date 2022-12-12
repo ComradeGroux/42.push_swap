@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/12 15:45:20 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/12 21:24:07 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack	**b;
+	t_stack	*b;
 
 	if (argc == 1)
 		return (print_error("Error"));
 	a = malloc(sizeof(t_stack *));
 	if (!a)
 		return (1);
-	b = malloc(sizeof(t_stack **));
+	b = malloc(sizeof(t_stack *));
 	if (!b)
 	{
 		free(a);
@@ -38,12 +38,17 @@ int	main(int argc, char **argv)
 		if (arr_to_list(argv, &a, 1))
 			return (1);
 	}
+	// t_stack	*tmp;
+	// tmp = a;
+	// while (tmp)
+	// {
+	// 	ft_printf("%d\t", tmp->content);
+	// 	tmp = tmp->next;
+	// }
+	// ft_printf("\n");
 	// TODO ALGO like "ft_algo(a, b)"
-	// FIXME content of a
-	ft_lstclear(&a, free);
-	free(a);
-	ft_lstclear(b, free);
-	free(b);
+	ft_stack_clear(&a);
+	ft_stack_clear(&b);
 	return (0);
 }
 
