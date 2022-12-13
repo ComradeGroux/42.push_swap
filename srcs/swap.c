@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:17:37 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/12 16:58:38 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/13 18:30:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	swap(t_stack **x, char c)
 	{
 		tmp = *x;
 		*x = (*x)->next;
-
 		tmp->next = (*x)->next;
 		tmp->prev = *x;
 		tmp->next->prev = tmp;
