@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:59:31 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/12 21:28:25 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/13 18:59:26 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ void	ft_stack_addback(t_stack **lst, t_stack *new)
 	t_stack	*temp;
 
 	temp = *lst;
-	if (*lst == NULL && new != NULL)
+	if (lst == NULL && new != NULL)
 	{
 		*lst = new;
 	}
-	else if (new && lst)
+	else if (new && *lst)
 	{
-		while (temp->next != NULL) // FIXME #heap-buffer-overflow
+		while (temp->next != NULL)
 			temp = temp->next;
 		new->prev = temp;
 		new->next = NULL;
