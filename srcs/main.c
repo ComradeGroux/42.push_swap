@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/13 18:52:48 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/13 20:04:14 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,7 @@ int	main(int argc, char **argv)
 		if (arr_to_list(argv, &a, 1))
 			return (1);
 	}
-	t_stack	*tmp;
-	tmp = a;
-	while (tmp)
-	{
-		ft_printf("%d\t", tmp->content);
-		tmp = tmp->next;
-	}
-	ft_printf("\n");
-	// TODO ALGO like "ft_algo(a, b)"
+	ft_printf("%d\n", is_sort(a));
 	ft_stack_clear(&a);
 	ft_stack_clear(&b);
 	return (0);

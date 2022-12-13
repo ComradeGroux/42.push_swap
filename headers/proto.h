@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/12 20:55:59 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/13 20:05:07 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_stack_addfront(t_stack **lst, t_stack *new);
 t_stack	*ft_stack_last(t_stack *lst);
 int		ft_stack_size(t_stack *lst);
 void	ft_stack_clear(t_stack **lst);
+int		is_sort(t_stack *a);
 
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
