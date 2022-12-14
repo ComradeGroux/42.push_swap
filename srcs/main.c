@@ -6,11 +6,21 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/13 20:04:14 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/14 15:56:41 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_stack(t_stack *a)
+{
+	while (a->next != NULL)
+	{
+		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", a, a->content, a->prev, a->next);
+		a = a->next;
+	}
+	ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", a, a->content, a->prev, a->next);
+}
 
 int	main(int argc, char **argv)
 {
@@ -38,7 +48,17 @@ int	main(int argc, char **argv)
 		if (arr_to_list(argv, &a, 1))
 			return (1);
 	}
-	ft_printf("%d\n", is_sort(a));
+
+	print_stack(a);
+	ft_printf("\n");
+	rotate(&a, 'a');
+	ft_printf("\n");
+	print_stack(a);
+	ft_printf("\n");
+	reverse_rotate(&a, 'a');
+	ft_printf("\n");
+	print_stack(a);
+
 	ft_stack_clear(&a);
 	ft_stack_clear(&b);
 	return (0);
