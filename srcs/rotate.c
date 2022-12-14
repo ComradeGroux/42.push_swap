@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:18:23 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/14 15:54:20 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/14 16:53:00 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	rr(t_stack **a, t_stack **b)
 	ft_printf("rr\n");
 }
 
-void	reverse_rotate(t_stack **x, char c) //FIXME
+void	reverse_rotate(t_stack **x, char c)
 {
 	t_stack	*new;
 	t_stack	*tmp;

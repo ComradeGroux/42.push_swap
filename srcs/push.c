@@ -6,13 +6,13 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:18:05 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/12 16:34:18 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/14 16:52:54 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b) //FIXME
 {
 	t_stack	*tmp;
 
@@ -29,7 +29,7 @@ void	pa(t_stack **a, t_stack **b)
 	}
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b) //FIXME
 {
 	t_stack	*tmp;
 

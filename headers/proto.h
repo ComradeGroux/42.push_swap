@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/14 15:56:43 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/14 16:02:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		*arr_str_to_int(char **arr_str, int start);
 int		arr_len(char **arr, int start);
 
 
-void	print_stack(t_stack *a);
+void	print_stack(t_stack *a, t_stack *b);
 
 
 #endif

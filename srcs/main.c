@@ -6,20 +6,28 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/14 15:56:41 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/14 16:42:39 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *a)
+void	print_stack(t_stack *a, t_stack *b)
 {
+	ft_printf("t_stack\tA:\n");
 	while (a->next != NULL)
 	{
 		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", a, a->content, a->prev, a->next);
 		a = a->next;
 	}
-	ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", a, a->content, a->prev, a->next);
+	ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n\n", a, a->content, a->prev, a->next);
+	ft_printf("t_stack\tB:\n");
+	while (b->next != NULL)
+	{
+		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", b, b->content, b->prev, b->next);
+		b = b->next;
+	}
+	ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n\n", b, b->content, b->prev, b->next);
 }
 
 int	main(int argc, char **argv)
@@ -49,15 +57,16 @@ int	main(int argc, char **argv)
 			return (1);
 	}
 
-	print_stack(a);
+	print_stack(a, b);
 	ft_printf("\n");
-	rotate(&a, 'a');
+	pb(&a, &b);
+	pb(&a, &b);
+	pb(&a, &b);
+	print_stack(a, b);
 	ft_printf("\n");
-	print_stack(a);
+	pb(&a, &b);
 	ft_printf("\n");
-	reverse_rotate(&a, 'a');
-	ft_printf("\n");
-	print_stack(a);
+	print_stack(a, b);
 
 	ft_stack_clear(&a);
 	ft_stack_clear(&b);
