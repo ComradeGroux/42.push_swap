@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:59:31 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/14 15:44:39 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/15 15:31:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_stack_addback(t_stack **lst, t_stack *new)
 	t_stack	*temp;
 
 	temp = *lst;
-	if (lst == NULL && new != NULL)
+	if (temp == NULL && new != NULL)
 		*lst = new;
 	else if (new && *lst)
 	{
