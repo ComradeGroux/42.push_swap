@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/15 17:28:45 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/15 18:42:45 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ int	main(int argc, char **argv)
 		return (print_error("Error"));
 	else if (argc == 2)
 	{
-		if (arr_to_list(ft_split(argv[1], ' '), &a, 0))
+		if (!arr_to_list(ft_split(argv[1], ' '), &a, 0))
 			return (1);
 	}
 	else
 	{
-		if (arr_to_list(argv, &a, 1))
+		if (!arr_to_list(argv, &a, 1))
 			return (1);
 	}
 	print_stack(a, b);

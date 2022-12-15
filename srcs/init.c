@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:37:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/15 18:35:11 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/15 18:37:59 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	*shift_int(int arr[], int len)
 	int	*cp_arr;
 	int	j;
 
-	counter = 0;
+	counter = len - 1;
 	i = 0;
 	j = 0;
 	cp_arr = arr;
@@ -79,12 +79,12 @@ int	*shift_int(int arr[], int len)
 	{
 		while (j < len)
 		{
-			if (cp_arr[i] > cp_arr[j])
-				counter++;
+			if (cp_arr[i] < cp_arr[j])
+				counter--;
 			j++;
 		}
 		arr[i] = counter++;
-		counter = 0;
+		counter = len - 1;
 		i++;
 	}
 	return (arr);
