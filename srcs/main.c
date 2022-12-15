@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/14 16:42:39 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/15 16:32:01 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,29 @@
 void	print_stack(t_stack *a, t_stack *b)
 {
 	ft_printf("t_stack\tA:\n");
-	while (a->next != NULL)
+	if (a != NULL)
 	{
-		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", a, a->content, a->prev, a->next);
-		a = a->next;
+		while (a->next != NULL)
+		{
+			ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", a, a->content, a->prev, a->next);
+			a = a->next;
+		}
+		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n\n", a, a->content, a->prev, a->next);
 	}
-	ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n\n", a, a->content, a->prev, a->next);
 	ft_printf("t_stack\tB:\n");
-	while (b->next != NULL)
+	if (b != NULL)
 	{
-		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", b, b->content, b->prev, b->next);
-		b = b->next;
+		while (b->next != NULL)
+		{
+			ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", b, b->content, b->prev, b->next);
+			b = b->next;
+		}
+		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n\n", b, b->content, b->prev, b->next);
 	}
-	ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n\n", b, b->content, b->prev, b->next);
+	else
+	{
+		ft_printf("%p\n\n", b);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -37,16 +47,9 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (print_error("Error"));
-	a = ft_calloc(1, sizeof(t_stack));
-	if (!a)
-		return (1);
-	b = ft_calloc(1, sizeof(t_stack));
-	if (!b)
-	{
-		free(a);
-		return (1);
-	}
-	else if (argc == 2)
+	a = NULL;
+	b = NULL;
+	if (argc == 2)
 	{
 		if (arr_to_list(ft_split(argv[1], ' '), &a, 0))
 			return (1);
@@ -56,18 +59,7 @@ int	main(int argc, char **argv)
 		if (arr_to_list(argv, &a, 1))
 			return (1);
 	}
-
-	print_stack(a, b);
-	ft_printf("\n");
-	pb(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	print_stack(a, b);
-	ft_printf("\n");
-	pb(&a, &b);
-	ft_printf("\n");
-	print_stack(a, b);
-
+	quicksort(&a, &b);
 	ft_stack_clear(&a);
 	ft_stack_clear(&b);
 	return (0);

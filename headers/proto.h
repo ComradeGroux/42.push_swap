@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/14 16:02:09 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/15 16:32:22 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int		init_stack(t_stack **a, int arr[], int flag);
 int		*arr_str_to_int(char **arr_str, int start);
 int		arr_len(char **arr, int start);
 
+void	quicksort(t_stack **a, t_stack **b);
 
 void	print_stack(t_stack *a, t_stack *b);
-
 
 #endif
