@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:37:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/15 18:37:59 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 13:11:51 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	*arr_str_to_int(char **arr_str, int start)
 	i = 0;
 	while (arr_str[len])
 		arr[i++] = ft_atoi(arr_str[len++]);
-	return (shift_int(arr, i));
+	return (arr);
+	//return (shift_int(arr, i));
 }
 
 int	arr_len(char **arr, int start)

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/09 18:49:33 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 13:12:25 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,7 @@ int	print_error(char *str)
 
 int	check_arg(char **tmp, int flag)
 {
-	if (!check_only_int(tmp, flag))
-	{
-		if (flag == 0)
-			ft_free_arr(tmp);
-		return (print_error("Error"));
-	}
-	else if (!check_duplicate(tmp, flag))
+	if (!check_only_int(tmp, flag) || !check_duplicate(tmp, flag))
 	{
 		if (flag == 0)
 			ft_free_arr(tmp);
