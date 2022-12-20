@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 18:41:52 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 19:17:01 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ void	tiny_sort(t_stack **a, t_stack **b);
 void	quicksort(t_stack **a, t_stack **b);
 
 void	print_stack(t_stack *a, t_stack *b);
+int		price_min_top(t_stack *lst);
 
 #endif
