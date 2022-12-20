@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 20:51:24 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 18:41:47 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 19:53:58 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,6 @@ void	ft_stack_clear(t_stack **lst)
 	}
 }
 
-void	clear_stack(t_stack **a, t_stack **b)
-{
-	ft_stack_clear(a);
-	ft_stack_clear(b);
-}
-
 int	is_sort(t_stack *a)
 {
 	int	tmp;
@@ -45,13 +39,13 @@ int	is_sort(t_stack *a)
 	return (1);
 }
 
-int	ft_stack_max_value(t_stack **lst)
+int	ft_stack_max_value(t_stack *lst)
 {
 	int		max;
 	t_stack	*tmp;
 
 	max = 0;
-	tmp = *lst;
+	tmp = lst;
 	while (tmp)
 	{
 		if (tmp->content > max)
@@ -61,13 +55,13 @@ int	ft_stack_max_value(t_stack **lst)
 	return (max);
 }
 
-int	ft_stack_min_value(t_stack **lst)
+int	ft_stack_min_value(t_stack *lst)
 {
 	int		min;
 	t_stack	*tmp;
 
 	min = INT_MAX;
-	tmp = *lst;
+	tmp = lst;
 	while (tmp)
 	{
 		if (tmp->content < min)
@@ -75,4 +69,21 @@ int	ft_stack_min_value(t_stack **lst)
 		tmp = tmp->next;
 	}
 	return (min);
+}
+
+int	ft_stack_find(t_stack *lst, int x)
+{
+	int	i;
+
+	i = 0;
+	if (!lst)
+		return (-1);
+	while (lst->next != NULL)
+	{
+		if (lst->content == x)
+			return (i);
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

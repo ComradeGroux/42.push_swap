@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 19:30:08 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 19:54:43 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ void	sort(t_stack **a, t_stack **b)
 void	ultra_tiny_sort(t_stack **a, t_stack **b)
 {
 	(void)b;
-	if ((*a)->content == ft_stack_min_value(a))
+	if ((*a)->content == ft_stack_min_value(*a))
 	{
 		swap(a, 'a');
 		rotate(a, 'a');
 	}
-	else if ((*a)->content != ft_stack_max_value(a))
+	else if ((*a)->content != ft_stack_max_value(*a))
 	{
-		if ((*a)->next->content == ft_stack_max_value(a))
+		if ((*a)->next->content == ft_stack_max_value(*a))
 			reverse_rotate(a, 'a');
 		else
 			swap(a, 'a');
 	}
 	else
 	{
-		if ((*a)->next->content == ft_stack_min_value(a))
+		if ((*a)->next->content == ft_stack_min_value(*a))
 			rotate(a, 'a');
 		else
 		{
@@ -56,11 +56,27 @@ void	tiny_sort(t_stack **a, t_stack **b)
 {
 	if (ft_stack_size(*a) == 5)
 	{
-		while ((*a)->content != ft_stack_min_value(a))
-			rotate(a, 'a');
+		if (ft_stack_find(*a, ft_stack_min_value(*a)) < ft_stack_size(*a) / 2)
+		{
+			while ((*a)->content != ft_stack_min_value(*a))
+				rotate(a, 'a');
+		}
+		else
+		{
+			while ((*a)->content != ft_stack_min_value(*a))
+				reverse_rotate(a, 'a');
+		}
 		pb(a, b);
-		while ((*a)->content != ft_stack_min_value(a))
-			rotate(a, 'a');
+		if (ft_stack_find(*a, ft_stack_min_value(*a)) < ft_stack_size(*a) / 2)
+		{
+			while ((*a)->content != ft_stack_min_value(*a))
+				rotate(a, 'a');
+		}
+		else
+		{
+			while ((*a)->content != ft_stack_min_value(*a))
+				reverse_rotate(a, 'a');
+		}
 		pb(a, b);
 		ultra_tiny_sort(a, b);
 		pa(a, b);
@@ -68,12 +84,18 @@ void	tiny_sort(t_stack **a, t_stack **b)
 	}
 	else
 	{
-		while ((*a)->content != ft_stack_min_value(a))
-			rotate(a, 'a');
+		if (ft_stack_find(*a, ft_stack_min_value(*a)) < ft_stack_size(*a) / 2)
+		{
+			while ((*a)->content != ft_stack_min_value(*a))
+				rotate(a, 'a');
+		}
+		else
+		{
+			while ((*a)->content != ft_stack_min_value(*a))
+				reverse_rotate(a, 'a');
+		}
 		pb(a, b);
 		ultra_tiny_sort(a, b);
-		ultra_tiny_sort(b, a);
-		swap(b, 'b');
 		pa(a, b);
 	}
 }
