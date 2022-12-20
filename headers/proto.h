@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 17:41:07 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 18:41:52 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_stack
 }	t_stack;
 
 int		main(int argc, char **argv);
-int		arr_to_list(char **tmp, t_stack **a, int flag);
+void	arr_to_list(char **tmp, t_stack **a, int flag);
 
 t_stack	*ft_stack_new(int content);
 void	ft_stack_addback(t_stack **lst, t_stack *new);
@@ -32,6 +32,7 @@ void	ft_stack_clear(t_stack **lst);
 int		is_sort(t_stack *a);
 int		ft_stack_max_value(t_stack **lst);
 int		ft_stack_min_value(t_stack **lst);
+void	clear_stack(t_stack **a, t_stack **b);
 
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
@@ -42,12 +43,12 @@ void	rr(t_stack **a, t_stack **b);
 void	reverse_rotate(t_stack **x, char c);
 void	rrr(t_stack **a, t_stack **b);
 
-int		print_error(char *str);
-int		check_arg(char **tmp, int flag);
-int		check_only_int(char **arg, int index);
-int		check_duplicate(char **tmp, int index);
+void	print_error_and_exit(void);
+void	check_arg(char **tmp, int flag);
+void	check_only_int(char **arg, int index);
+void	check_duplicate(char **tmp, int index);
 
-int		init_stack(t_stack **a, int arr[], int flag);
+void	init_stack(t_stack **a, int arr[], int flag);
 int		*arr_str_to_int(char **arr_str, int start);
 int		arr_len(char **arr, int start);
 int		*shift_int(int arr[], int len);

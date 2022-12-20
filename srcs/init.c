@@ -6,32 +6,31 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:37:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 16:02:42 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 18:07:04 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	init_stack(t_stack **a, int arr[], int len)
+void	init_stack(t_stack **a, int arr[], int len)
 {
 	int		i;
 	t_stack	*new;
 
 	i = 0;
 	if (!arr)
-		return (1);
+		print_error_and_exit();
 	while (i < len)
 	{
 		new = ft_stack_new(arr[i]);
 		if (!new)
 		{
 			ft_stack_clear(a);
-			return (1);
+			print_error_and_exit();
 		}
 		ft_stack_addback(a, new);
 		i++;
 	}
-	return (0);
 }
 
 int	*arr_str_to_int(char **arr_str, int start)

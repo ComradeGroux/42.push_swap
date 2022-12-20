@@ -6,36 +6,31 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 16:04:06 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 18:46:01 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	print_error(char *str)
+void	print_error_and_exit(void)
 {
-	ft_putendl_fd(str, 2);
-	return (1);
+	ft_putendl_fd("Error", 2);
+	exit(EXIT_FAILURE);
 }
 
-int	check_arg(char **tmp, int flag)
+void	check_arg(char **tmp, int flag)
 {
-	if (!check_only_int(tmp, flag) || !check_duplicate(tmp, flag))
-	{
-		if (flag == 0)
-			ft_free_arr(tmp);
-		return (print_error("Error"));
-	}
-	return (0);
+	check_only_int(tmp, flag);
+	check_duplicate(tmp, flag);
 }
 
-int	check_only_int(char **arg, int index)
+void	check_only_int(char **arg, int index)
 {
 	int	i;
 
 	i = 0;
 	if (!arg)
-		return (0);
+		print_error_and_exit();
 	while (arg[index])
 	{
 		if (ft_isnegpos(arg[index][0]))
@@ -45,17 +40,16 @@ int	check_only_int(char **arg, int index)
 		while (arg[index][i])
 		{
 			if (!ft_isdigit(arg[index][i]))
-				return (0);
+				print_error_and_exit();
 			i++;
 		}
 		if (ft_atol(arg[index]) > INT_MAX || ft_atol(arg[index]) < INT_MIN)
-			return (0);
+			print_error_and_exit();
 		index++;
 	}
-	return (1);
 }
 
-int	check_duplicate(char **arg, int i)
+void	check_duplicate(char **arg, int i)
 {
 	int	j;
 	int	tmp;
@@ -64,10 +58,10 @@ int	check_duplicate(char **arg, int i)
 
 	arr = arr_str_to_int(arg, i);
 	if (!arr)
-		return (0);
+		print_error_and_exit();
 	len = arr_len(arg, i);
-	i--;
-	while (++i < len)
+	i = 0;
+	while (i < len)
 	{
 		tmp = arr[i];
 		j = i;
@@ -76,10 +70,10 @@ int	check_duplicate(char **arg, int i)
 			if (arr[j] == tmp)
 			{
 				free(arr);
-				return (0);
+				print_error_and_exit();
 			}
 		}
+		i++;
 	}
 	free(arr);
-	return (1);
 }

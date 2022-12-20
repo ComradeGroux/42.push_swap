@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 13:13:53 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 18:47:17 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,39 +52,26 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc == 1)
-		return (print_error("Error"));
+		print_error_and_exit();
 	else if (argc == 2)
-	{
-		if (arr_to_list(ft_split(argv[1], ' '), &a, 0))
-			return (1);
-	}
+		arr_to_list(ft_split(argv[1], ' '), &a, 0);
 	else
-	{
-		if (arr_to_list(argv, &a, 1))
-			return (1);
-	}
+		arr_to_list(argv, &a, 1);
 	print_stack(a, b);
+	ft_printf("-----------------\n");
 	sort(&a, &b);
+	ft_printf("-----------------\n\n");
 	print_stack(a, b);
-	ft_stack_clear(&a);
-	ft_stack_clear(&b);
+	clear_stack(&a, &b);
 	return (0);
 }
 
-int	arr_to_list(char **tmp, t_stack **a, int flag)
+void	arr_to_list(char **tmp, t_stack **a, int flag)
 {
 	if (!tmp)
-		return (print_error("Error"));
-	else if (!check_arg(tmp, flag))
-	{
-		if (init_stack(a, arr_str_to_int(tmp, flag), arr_len(tmp, flag)))
-		{
-			if (flag == 0)
-				ft_free_arr(tmp);
-			return (1);
-		}
-		else if (flag == 0)
-			ft_free_arr(tmp);
-	}
-	return (0);
+		print_error_and_exit();
+	check_arg(tmp, flag);
+	init_stack(a, arr_str_to_int(tmp, flag), arr_len(tmp, flag));
+	if (flag == 0)
+		ft_free_arr(tmp);
 }

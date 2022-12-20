@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 20:51:24 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 17:45:37 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 18:41:47 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ void	ft_stack_clear(t_stack **lst)
 		free(*lst);
 		*lst = tmp;
 	}
+}
+
+void	clear_stack(t_stack **a, t_stack **b)
+{
+	ft_stack_clear(a);
+	ft_stack_clear(b);
 }
 
 int	is_sort(t_stack *a)
