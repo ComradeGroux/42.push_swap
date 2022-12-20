@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:37:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 13:11:51 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 16:02:42 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,7 @@ int	*arr_str_to_int(char **arr_str, int start)
 	i = 0;
 	while (arr_str[len])
 		arr[i++] = ft_atoi(arr_str[len++]);
-	return (arr);
-	//return (shift_int(arr, i));
+	return (shift_int(arr, i));
 }
 
 int	arr_len(char **arr, int start)
@@ -64,29 +63,28 @@ int	arr_len(char **arr, int start)
 	return (i - start);
 }
 
-// FIXME
 int	*shift_int(int arr[], int len)
 {
-	int	counter;
 	int	i;
-	int	*cp_arr;
 	int	j;
+	int	*cp_arr;
+	int	counter;
 
-	counter = len - 1;
 	i = 0;
-	j = 0;
-	cp_arr = arr;
+	cp_arr = ft_calloc(len, sizeof(int));
 	while (i < len)
 	{
+		j = 0;
+		counter = 0;
 		while (j < len)
 		{
-			if (cp_arr[i] < cp_arr[j])
-				counter--;
+			if (arr[i] > arr[j])
+				counter++;
 			j++;
 		}
-		arr[i] = counter++;
-		counter = len - 1;
+		cp_arr[i] = counter;
 		i++;
 	}
-	return (arr);
+	free(arr);
+	return (cp_arr);
 }

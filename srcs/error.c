@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 13:12:25 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 16:04:06 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	check_duplicate(char **arg, int i)
 	{
 		tmp = arr[i];
 		j = i;
-		while (arr[++j])
+		while (++j < len)
 		{
 			if (arr[j] == tmp)
 			{
