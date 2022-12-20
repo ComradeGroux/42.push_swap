@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 17:11:39 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/20 17:49:42 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ void	sort(t_stack **a, t_stack **b)
 void	ultra_tiny_sort(t_stack **a, t_stack **b)
 {
 	(void)b;
-	if ((*a)->content == 0)
+	if ((*a)->content == ft_stack_min_value(a))
 	{
 		swap(a, 'a');
 		rotate(a, 'a');
 	}
-	else if ((*a)->content == 1)
+	else if ((*a)->content != ft_stack_max_value(a))
 	{
-		if ((*a)->next->content == 2)
+		if ((*a)->next->content == ft_stack_max_value(a))
 			reverse_rotate(a, 'a');
 		else
 			swap(a, 'a');
 	}
 	else
 	{
-		if ((*a)->next->content == 0)
+		if ((*a)->next->content == ft_stack_min_value(a))
 			rotate(a, 'a');
 		else
 		{
@@ -54,8 +54,15 @@ void	ultra_tiny_sort(t_stack **a, t_stack **b)
 // TODO
 void	tiny_sort(t_stack **a, t_stack **b)
 {
-	(void)a;
-	(void)b;
+	if (ft_stack_size(*a) == 5)
+	{
+		pb(a, b);
+		pb(a, b);
+		ultra_tiny_sort(a, b);
+		pa(a, b);
+		pa(a, b);
+	}
+	
 }
 
 //TODO
