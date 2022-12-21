@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/21 15:20:39 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/21 17:28:08 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	sort(t_stack **a, t_stack **b)
 	else if (*b == NULL && ft_stack_size(*a) <= 5)
 		tiny_sort(a, b);
 	else
-		// quicksort(a, b);
-		quicktest(a, b);
+		quicksort(a, b);
+		// quicktest(a, b);
 }
 
 void	ultra_tiny_sort(t_stack **a, t_stack **b)
@@ -76,8 +76,23 @@ void	tiny_sort(t_stack **a, t_stack **b)
 //TODO
 void	quicksort(t_stack **a, t_stack **b)
 {
-	(void)a;
-	(void)b;
+	int	ilen;
+
+	while (ft_stack_size(*a) > 5)
+	{
+		ilen = ft_stack_size(*a);
+		while (ft_stack_size(*a) > ilen / 2)
+		{
+			ft_stack_min_top(a, 'a');
+			pb(a, b);
+		}
+	}
+	tiny_sort(a, b);
+	while (*b)
+	{
+		ft_stack_max_top(b, 'b');
+		pa(a, b);
+	}
 }
 
 // TODO TEST
