@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 19:48:12 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/21 13:55:31 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ int	main(int argc, char **argv)
 		arr_to_list(ft_split(argv[1], ' '), &a, 0);
 	else
 		arr_to_list(argv, &a, 1);
-	print_stack(a, b);
-	ft_printf("-----------------\n");
+	// print_stack(a, b);
+	// ft_printf("-----------------\n");
+	// ft_printf("moyenne: %d\n", ft_stack_mid(a));
+	// ft_printf("-----------------\n");
 	sort(&a, &b);
-	ft_printf("-----------------\n\n");
-	print_stack(a, b);
+	// ft_printf("-----------------\n\n");
+	// print_stack(a, b);
 	ft_stack_clear(&a);
 	ft_stack_clear(&b);
 	return (0);

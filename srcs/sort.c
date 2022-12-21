@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 19:54:43 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/21 15:20:39 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	sort(t_stack **a, t_stack **b)
 	else if (*b == NULL && ft_stack_size(*a) <= 5)
 		tiny_sort(a, b);
 	else
-		quicksort(a, b);
+		// quicksort(a, b);
+		quicktest(a, b);
 }
 
 void	ultra_tiny_sort(t_stack **a, t_stack **b)
@@ -51,32 +52,13 @@ void	ultra_tiny_sort(t_stack **a, t_stack **b)
 	}
 }
 
-// TODO
 void	tiny_sort(t_stack **a, t_stack **b)
 {
 	if (ft_stack_size(*a) == 5)
 	{
-		if (ft_stack_find(*a, ft_stack_min_value(*a)) < ft_stack_size(*a) / 2)
-		{
-			while ((*a)->content != ft_stack_min_value(*a))
-				rotate(a, 'a');
-		}
-		else
-		{
-			while ((*a)->content != ft_stack_min_value(*a))
-				reverse_rotate(a, 'a');
-		}
+		ft_stack_min_top(a, 'a');
 		pb(a, b);
-		if (ft_stack_find(*a, ft_stack_min_value(*a)) < ft_stack_size(*a) / 2)
-		{
-			while ((*a)->content != ft_stack_min_value(*a))
-				rotate(a, 'a');
-		}
-		else
-		{
-			while ((*a)->content != ft_stack_min_value(*a))
-				reverse_rotate(a, 'a');
-		}
+		ft_stack_min_top(a, 'a');
 		pb(a, b);
 		ultra_tiny_sort(a, b);
 		pa(a, b);
@@ -84,16 +66,7 @@ void	tiny_sort(t_stack **a, t_stack **b)
 	}
 	else
 	{
-		if (ft_stack_find(*a, ft_stack_min_value(*a)) < ft_stack_size(*a) / 2)
-		{
-			while ((*a)->content != ft_stack_min_value(*a))
-				rotate(a, 'a');
-		}
-		else
-		{
-			while ((*a)->content != ft_stack_min_value(*a))
-				reverse_rotate(a, 'a');
-		}
+		ft_stack_min_top(a, 'a');
 		pb(a, b);
 		ultra_tiny_sort(a, b);
 		pa(a, b);
@@ -105,4 +78,17 @@ void	quicksort(t_stack **a, t_stack **b)
 {
 	(void)a;
 	(void)b;
+}
+
+// TODO TEST
+void	quicktest(t_stack **a, t_stack **b)
+{
+	while (ft_stack_size(*a) > 3)
+	{
+		ft_stack_min_top(a, 'a');
+		pb(a, b);
+	}
+	ultra_tiny_sort(a, b);
+	while (*b)
+		pa(a, b);
 }
