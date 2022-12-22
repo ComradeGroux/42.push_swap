@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/22 18:24:02 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/22 19:27:46 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	quicksort(t_stack **a, t_stack **b)
 
 int	movecalc(t_stack **lst, int tofind)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *lst;
 	while (tmp)
@@ -113,8 +113,8 @@ int	movecalc(t_stack **lst, int tofind)
 			break ;
 		tmp = tmp->next;
 	}
-	print_stack(*lst, NULL);
-	ft_printf("%p\t%d\n%p\t%d\n\n", tmp, tmp->content, *lst, (*lst)->content);
+	if (tmp == NULL)
+		return (0);
 	if (ft_stack_find(*lst, tmp->content) > ft_stack_size(*lst) / 2)
 		return (ft_stack_size(*lst) - ft_stack_find(*lst, tmp->content) + 1);
 	else

@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 12:37:43 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 18:07:04 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/22 19:13:53 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	*shift_int(int arr[], int len)
 	while (i < len)
 	{
 		j = 0;
-		counter = 0;
+		counter = 1;
 		while (j < len)
 		{
 			if (arr[i] > arr[j])
