@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/21 17:28:08 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/22 18:24:02 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	sort(t_stack **a, t_stack **b)
 		tiny_sort(a, b);
 	else
 		quicksort(a, b);
-		// quicktest(a, b);
 }
 
 void	ultra_tiny_sort(t_stack **a, t_stack **b)
@@ -76,34 +75,48 @@ void	tiny_sort(t_stack **a, t_stack **b)
 //TODO
 void	quicksort(t_stack **a, t_stack **b)
 {
-	int	ilen;
+	int	mid;
 
-	while (ft_stack_size(*a) > 5)
+	while (ft_stack_size(*a) > 1)
 	{
-		ilen = ft_stack_size(*a);
-		while (ft_stack_size(*a) > ilen / 2)
-		{
-			ft_stack_min_top(a, 'a');
+		mid = ft_stack_mid(*a);
+		if ((*a)->content <= mid)
 			pb(a, b);
+		else
+			rotate(a, 'a');
+	}
+	while (*b)
+	{
+		if (movecalc(b, ft_stack_min_value(*b) < movecalc(b, ft_stack_max_value(*b))))
+		{
+			ft_stack_min_top(b, 'b');
+			pa(a, b);
+			rotate(a, 'a');
+		}
+		else
+		{
+			ft_stack_max_top(b, 'b');
+			pa(a, b);
 		}
 	}
-	tiny_sort(a, b);
-	while (*b)
-	{
-		ft_stack_max_top(b, 'b');
-		pa(a, b);
-	}
+	ft_stack_min_top(a, 'a');
 }
 
-// TODO TEST
-void	quicktest(t_stack **a, t_stack **b)
+int	movecalc(t_stack **lst, int tofind)
 {
-	while (ft_stack_size(*a) > 3)
+	t_stack *tmp;
+
+	tmp = *lst;
+	while (tmp)
 	{
-		ft_stack_min_top(a, 'a');
-		pb(a, b);
+		if (tmp->content == tofind)
+			break ;
+		tmp = tmp->next;
 	}
-	ultra_tiny_sort(a, b);
-	while (*b)
-		pa(a, b);
+	print_stack(*lst, NULL);
+	ft_printf("%p\t%d\n%p\t%d\n\n", tmp, tmp->content, *lst, (*lst)->content);
+	if (ft_stack_find(*lst, tmp->content) > ft_stack_size(*lst) / 2)
+		return (ft_stack_size(*lst) - ft_stack_find(*lst, tmp->content) + 1);
+	else
+		return (ft_stack_find(*lst, tmp->content) - 1);
 }

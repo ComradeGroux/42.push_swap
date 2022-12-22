@@ -6,12 +6,15 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:18:05 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/15 16:30:10 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/22 18:13:31 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Push le top de B sur A
+ */
 void	pa(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
@@ -40,6 +43,9 @@ void	pa(t_stack **a, t_stack **b)
 	}
 }
 
+/**
+ * Push le top de A sur B
+ */
 void	pb(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;

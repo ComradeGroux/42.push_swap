@@ -6,12 +6,15 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:18:23 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/14 16:53:00 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/22 18:14:25 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Premier element devient le dernier
+ */
 void	rotate(t_stack **x, char c)
 {
 	*x = (*x)->next;
@@ -28,6 +31,9 @@ void	rr(t_stack **a, t_stack **b)
 	ft_printf("rr\n");
 }
 
+/**
+ * Dernier element devient le premier
+ */
 void	reverse_rotate(t_stack **x, char c)
 {
 	t_stack	*new;

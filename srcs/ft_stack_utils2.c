@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:17:19 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/21 13:51:02 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/22 17:19:38 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ void	ft_stack_min_top(t_stack **lst, char c)
 	}
 }
 
+/**
+ * Met l'element le plus grand en haut de la stack
+ */
 void	ft_stack_max_top(t_stack **lst, char c)
 {
 	int	max;
@@ -49,6 +52,9 @@ void	ft_stack_max_top(t_stack **lst, char c)
 	}
 }
 
+/**
+ * Retourne la median de la stack
+ */
 int	ft_stack_mid(t_stack *lst)
 {
 	t_stack	*tmp;
