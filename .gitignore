@@ -5,3 +5,5 @@ test.c
 a.out
 push_swap
 checker_Mac
+checker_linux
+push_swap_tester
