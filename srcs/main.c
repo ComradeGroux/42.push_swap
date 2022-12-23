@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/22 18:23:30 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/23 12:03:11 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int argc, char **argv)
 	sort(&a, &b);
 	ft_stack_clear(&a);
 	ft_stack_clear(&b);
-	return (0);
+	exit(EXIT_SUCCESS);
 }
 
 void	arr_to_list(char **tmp, t_stack **a, int flag)

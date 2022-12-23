@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 20:51:24 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/22 19:17:48 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/23 12:06:08 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int	ft_stack_min_value(t_stack *lst)
 
 int	ft_stack_find(t_stack *lst, int x)
 {
-	int	i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	tmp = lst;
 	i = 0;

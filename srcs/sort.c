@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/22 19:44:17 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/23 12:07:07 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,7 @@ void	quicksort(t_stack **a, t_stack **b)
 	}
 	while (*b)
 	{
-		//if (0)
-		if (movecalc(b, ft_stack_min_value(*b) < movecalc(b, ft_stack_max_value(*b))))
+		if (movecalc(b, ft_stack_min_value(*b)) < movecalc(b, ft_stack_max_value(*b)))
 		{
 			ft_stack_min_top(b, 'b');
 			pa(a, b);
