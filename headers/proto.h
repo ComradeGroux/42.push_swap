@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/22 18:23:36 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/23 14:00:49 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	sort(t_stack **a, t_stack **b);
 void	ultra_tiny_sort(t_stack **a, t_stack **b);
 void	tiny_sort(t_stack **a, t_stack **b);
 void	quicksort(t_stack **a, t_stack **b);
-int		movecalc(t_stack **lst, int tofind);
+int		cost(t_stack **lst, int tofind);
 
 void	print_stack(t_stack *a, t_stack *b);
 

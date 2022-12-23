@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/23 12:07:07 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/23 14:00:16 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	quicksort(t_stack **a, t_stack **b)
 	}
 	while (*b)
 	{
-		if (movecalc(b, ft_stack_min_value(*b)) < movecalc(b, ft_stack_max_value(*b)))
+		if (cost(b, ft_stack_min_value(*b)) < cost(b, ft_stack_max_value(*b)))
 		{
 			ft_stack_min_top(b, 'b');
 			pa(a, b);
@@ -102,7 +102,7 @@ void	quicksort(t_stack **a, t_stack **b)
 	ft_stack_min_top(a, 'a');
 }
 
-int	movecalc(t_stack **lst, int tofind)
+int	cost(t_stack **lst, int tofind)
 {
 	t_stack	*tmp;
 
