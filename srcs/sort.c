@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/23 14:00:16 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/24 00:35:06 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,11 @@ void	quicksort(t_stack **a, t_stack **b)
 	{
 		mid = ft_stack_mid(*a);
 		if ((*a)->content <= mid)
+		{
 			pb(a, b);
+			if ((*b)->content <= mid / 2)
+				rotate(b, 'b');
+		}
 		else
 			rotate(a, 'a');
 	}
