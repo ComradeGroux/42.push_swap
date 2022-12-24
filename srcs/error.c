@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:36:41 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/20 18:46:01 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/24 13:39:12 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	check_only_int(char **arg, int index)
 			i = 1;
 		else
 			i = 0;
+		if (arg[index][i] == '\0')
+			print_error_and_exit();
 		while (arg[index][i])
 		{
 			if (!ft_isdigit(arg[index][i]))

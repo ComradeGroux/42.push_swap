@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 20:51:24 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/23 12:06:08 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/24 14:02:21 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_stack_clear(t_stack **lst)
 {
 	t_stack	*tmp;
 
-	if (*lst)
+	while (*lst)
 	{
 		tmp = (*lst)->next;
 		free(*lst);

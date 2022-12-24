@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/24 00:35:06 by vgroux           ###   ########.fr       */
+/*   Updated: 2022/12/24 15:31:14 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	sort(t_stack **a, t_stack **b)
 		ultra_tiny_sort(a, b);
 	else if (*b == NULL && ft_stack_size(*a) <= 5)
 		tiny_sort(a, b);
+	else if (*b == NULL && ft_stack_size(*a) <= 150)
+		personalsort(a, b);
 	else
 		quicksort(a, b);
 }
@@ -59,7 +61,8 @@ void	tiny_sort(t_stack **a, t_stack **b)
 		pb(a, b);
 		ft_stack_min_top(a, 'a');
 		pb(a, b);
-		ultra_tiny_sort(a, b);
+		if (!is_sort(*a))
+			ultra_tiny_sort(a, b);
 		pa(a, b);
 		pa(a, b);
 	}
@@ -67,13 +70,13 @@ void	tiny_sort(t_stack **a, t_stack **b)
 	{
 		ft_stack_min_top(a, 'a');
 		pb(a, b);
-		ultra_tiny_sort(a, b);
+		if (!is_sort(*a))
+			ultra_tiny_sort(a, b);
 		pa(a, b);
 	}
 }
 
-//TODO
-void	quicksort(t_stack **a, t_stack **b)
+void	personalsort(t_stack **a, t_stack **b)
 {
 	int	mid;
 
@@ -83,7 +86,9 @@ void	quicksort(t_stack **a, t_stack **b)
 		if ((*a)->content <= mid)
 		{
 			pb(a, b);
-			if ((*b)->content <= mid / 2)
+			if ((*b)->content <= mid / 2 && (*a)->content <= mid)
+				rr(a, b);
+			else if ((*b)->content <= mid / 2)
 				rotate(b, 'b');
 		}
 		else

@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 13:09:11 by vgroux            #+#    #+#              #
-#    Updated: 2022/12/23 14:00:35 by vgroux           ###   ########.fr        #
+#    Updated: 2022/12/24 14:17:39 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RESET = \033[0m
 NAME =     push_swap
 
 CC =         gcc
-CFLAGS =     -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS =     -Wall -Wextra -Werror
 RM =         rm -rf
 
 DIR_H = headers/
@@ -36,6 +36,7 @@ SRCS_LIST =	main.c \
 			ft_stack_utils.c \
 			ft_stack_utils2.c \
 			sort.c \
+			quicksort.c
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LIST}}
 
@@ -52,7 +53,7 @@ LIBS = ${FT_LNK}
 # ${NAME}: title ${LIBFT} ${OBJS}
 ${NAME}: ${LIBFT} ${OBJS}
 	@echo "$(RESET)[$(GREENGREEN)${NAME}$(RESET)]: ${NAME} Objects were created${GREY}"
-	${CC} -g3 -fsanitize=address ${OBJS} ${LIBS} -o ${NAME}
+	${CC} ${OBJS} ${LIBS} -o ${NAME}
 	@echo "$(RESET)[$(GREENGREEN)${NAME}$(RESET)]: ${NAME} created !"
 
 ${LIBFT}:
