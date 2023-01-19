@@ -6,23 +6,11 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/01/19 16:29:41 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/19 17:33:02 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort(t_stack **a, t_stack **b)
-{
-	if (*b == NULL && is_sort(*a))
-		return ;
-	else if (*b == NULL && ft_stack_size(*a) <= 3)
-		ultra_tiny_sort(a, b);
-	else if (*b == NULL && ft_stack_size(*a) <= 5)
-		tiny_sort(a, b);
-	else
-		personalsort(a, b);
-}
 
 void	ultra_tiny_sort(t_stack **a, t_stack **b)
 {
@@ -69,19 +57,7 @@ void	personalsort(t_stack **a, t_stack **b)
 	int	mid;
 
 	while (ft_stack_size(*a) > 1)
-	{
-		mid = ft_stack_mid(*a);
-		if ((*a)->content <= mid)
-		{
-			pb(a, b);
-			if ((*b)->content <= mid / 2 && (*a)->content <= mid)
-				rr(a, b);
-			else if ((*b)->content <= mid / 2)
-				rotate(b, 'b');
-		}
-		else
-			rotate(a, 'a');
-	}
+		presort(a, b, ft_stack_mid(*a));
 	while (*b)
 	{
 		if (cost(b, ft_stack_min_value(*b)) < cost(b, ft_stack_max_value(*b)))
@@ -97,6 +73,20 @@ void	personalsort(t_stack **a, t_stack **b)
 		}
 	}
 	ft_stack_min_top(a, 'a');
+}
+
+void	presort(t_stack **a, t_stack **b, int mid)
+{
+	if ((*a)->content <= mid)
+	{
+		pb(a, b);
+		if ((*b)->content <= mid / 2 && (*a)->content <= mid)
+			rr(a, b);
+		else if ((*b)->content <= mid / 2)
+			rotate(b, 'b');
+	}
+	else
+		rotate(a, 'a');
 }
 
 int	cost(t_stack **lst, int tofind)

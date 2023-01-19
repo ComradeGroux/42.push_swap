@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/01/19 16:22:39 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/19 17:33:18 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int		*arr_str_to_int(char **arr_str, int start);
 int		arr_len(char **arr, int start);
 int		*shift_int(int arr[], int len);
 
-void	sort(t_stack **a, t_stack **b);
 void	ultra_tiny_sort(t_stack **a, t_stack **b);
 void	tiny_sort(t_stack **a, t_stack **b);
 void	personalsort(t_stack **a, t_stack **b);
+void	presort(t_stack **a, t_stack **b, int mid);
 int		cost(t_stack **lst, int tofind);
 
 #endif
