@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/24 15:31:14 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/19 16:19:42 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,32 +55,22 @@ void	ultra_tiny_sort(t_stack **a, t_stack **b)
 
 void	tiny_sort(t_stack **a, t_stack **b)
 {
-	if (ft_stack_size(*a) == 5)
+	while (ft_stack_size(*a) > 3)
 	{
 		ft_stack_min_top(a, 'a');
 		pb(a, b);
-		ft_stack_min_top(a, 'a');
-		pb(a, b);
-		if (!is_sort(*a))
-			ultra_tiny_sort(a, b);
-		pa(a, b);
-		pa(a, b);
 	}
-	else
-	{
-		ft_stack_min_top(a, 'a');
-		pb(a, b);
-		if (!is_sort(*a))
-			ultra_tiny_sort(a, b);
+	if (!is_sort(*a))
+		ultra_tiny_sort(a, b);
+	while (ft_stack_size(*b))
 		pa(a, b);
-	}
 }
 
 void	personalsort(t_stack **a, t_stack **b)
 {
 	int	mid;
 
-	while (ft_stack_size(*a) > 1)
+	while (ft_stack_size(*a) > 3)
 	{
 		mid = ft_stack_mid(*a);
 		if ((*a)->content <= mid)
@@ -94,6 +84,7 @@ void	personalsort(t_stack **a, t_stack **b)
 		else
 			rotate(a, 'a');
 	}
+	ultra_tiny_sort(a, b);
 	while (*b)
 	{
 		if (cost(b, ft_stack_min_value(*b)) < cost(b, ft_stack_max_value(*b)))
