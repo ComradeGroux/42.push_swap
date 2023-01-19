@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2023/01/19 17:33:18 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/19 20:01:14 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		ft_stack_find(t_stack *lst, int x);
 void	ft_stack_min_top(t_stack **lst, char c);
 void	ft_stack_max_top(t_stack **lst, char c);
 int		ft_stack_mid(t_stack *lst);
+int		ft_stack_moy(t_stack *lst);
 
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);

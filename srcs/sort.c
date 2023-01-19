@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/01/19 17:33:02 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/19 20:32:09 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,8 @@ void	tiny_sort(t_stack **a, t_stack **b)
 
 void	personalsort(t_stack **a, t_stack **b)
 {
-	int	mid;
-
 	while (ft_stack_size(*a) > 1)
-		presort(a, b, ft_stack_mid(*a));
+		presort(a, b, ft_stack_moy(*a));
 	while (*b)
 	{
 		if (cost(b, ft_stack_min_value(*b)) < cost(b, ft_stack_max_value(*b)))
@@ -77,12 +75,15 @@ void	personalsort(t_stack **a, t_stack **b)
 
 void	presort(t_stack **a, t_stack **b, int mid)
 {
+	int	midmid;
+
+	midmid = (mid + ft_stack_min_value(*a)) / 2;
 	if ((*a)->content <= mid)
 	{
 		pb(a, b);
-		if ((*b)->content <= mid / 2 && (*a)->content <= mid)
+		if ((*b)->content <= midmid && (*a)->content >= ft_stack_mid(*a))
 			rr(a, b);
-		else if ((*b)->content <= mid / 2)
+		else if ((*b)->content <= midmid)
 			rotate(b, 'b');
 	}
 	else
