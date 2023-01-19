@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:32:35 by vgroux            #+#    #+#             */
-/*   Updated: 2023/01/19 16:19:42 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/19 16:29:41 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	sort(t_stack **a, t_stack **b)
 		ultra_tiny_sort(a, b);
 	else if (*b == NULL && ft_stack_size(*a) <= 5)
 		tiny_sort(a, b);
-	else if (*b == NULL && ft_stack_size(*a) <= 150)
-		personalsort(a, b);
 	else
-		quicksort(a, b);
+		personalsort(a, b);
 }
 
 void	ultra_tiny_sort(t_stack **a, t_stack **b)
@@ -70,7 +68,7 @@ void	personalsort(t_stack **a, t_stack **b)
 {
 	int	mid;
 
-	while (ft_stack_size(*a) > 3)
+	while (ft_stack_size(*a) > 1)
 	{
 		mid = ft_stack_mid(*a);
 		if ((*a)->content <= mid)
@@ -84,7 +82,6 @@ void	personalsort(t_stack **a, t_stack **b)
 		else
 			rotate(a, 'a');
 	}
-	ultra_tiny_sort(a, b);
 	while (*b)
 	{
 		if (cost(b, ft_stack_min_value(*b)) < cost(b, ft_stack_max_value(*b)))

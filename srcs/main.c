@@ -6,43 +6,11 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/24 14:02:32 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/19 16:22:51 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_stack *a, t_stack *b)
-{
-	ft_printf("t_stack\tA:\n");
-	if (a != NULL)
-	{
-		while (a->next != NULL)
-		{
-			ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", \
-			a, a->content, a->prev, a->next);
-			a = a->next;
-		}
-		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n\n", \
-		a, a->content, a->prev, a->next);
-	}
-	else
-		ft_printf("%p\n\n", a);
-	ft_printf("t_stack\tB:\n");
-	if (b != NULL)
-	{
-		while (b->next != NULL)
-		{
-			ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n", \
-			b, b->content, b->prev, b->next);
-			b = b->next;
-		}
-		ft_printf("current: %p\t\tdata: %d\t\tprev: %p\t\tnext: %p\n\n", \
-		b, b->content, b->prev, b->next);
-	}
-	else
-		ft_printf("%p\n\n", b);
-}
 
 int	main(int argc, char **argv)
 {

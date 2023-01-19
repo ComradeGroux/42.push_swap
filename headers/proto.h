@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:13:10 by vgroux            #+#    #+#             */
-/*   Updated: 2022/12/24 15:02:58 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/19 16:22:39 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,5 @@ void	ultra_tiny_sort(t_stack **a, t_stack **b);
 void	tiny_sort(t_stack **a, t_stack **b);
 void	personalsort(t_stack **a, t_stack **b);
 int		cost(t_stack **lst, int tofind);
-
-void	quicksort(t_stack **a, t_stack **b);
-void	print_stack(t_stack *a, t_stack *b);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 13:09:11 by vgroux            #+#    #+#              #
-#    Updated: 2022/12/24 14:17:39 by vgroux           ###   ########.fr        #
+#    Updated: 2023/01/19 16:25:07 by vgroux           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SRCS_LIST =	main.c \
 			ft_stack_utils.c \
 			ft_stack_utils2.c \
 			sort.c \
-			quicksort.c
 
 SRCS =		${addprefix ${DIR_S}, ${SRCS_LIST}}
 
