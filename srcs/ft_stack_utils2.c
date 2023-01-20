@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 13:17:19 by vgroux            #+#    #+#             */
-/*   Updated: 2023/01/19 20:00:48 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/01/20 17:34:44 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,47 @@ int	ft_stack_moy(t_stack *lst)
 }
 
 /**
- * Retourne la medianne de la stack
+ * Retourne la mediane de la stack
  */
-int	ft_stack_mid(t_stack *lst)
+int	ft_stack_mid(t_stack *lst, int max, int min)
 {
-	int	size;
-	int	max;
-	int	min;
+	t_stack	*tmp;
+	int		*arr;
+	int		i;
+	int		j;
+	int		len;
+	int		temp;
 
-	size = ft_stack_size(lst);
-	max = ft_stack_max_value(lst);
-	min = ft_stack_min_value(lst);
-	return (ft_stack_moy(lst));
+	tmp = lst;
+	arr = ft_calloc(max - min + 1, sizeof(int));
+	if (!arr)
+		return (ft_stack_moy(lst));
+	len = 0;
+	while (tmp)
+	{
+		if (tmp->content >= min && tmp->content <= max)
+			arr[len++] = tmp->content;
+		tmp = tmp->next;
+	}
+	i = 0;
+	j = 0;
+	while (i < len)
+	{
+		j = 0;
+		while (j < len - 1)
+		{
+			if(arr[j] > arr[j+1])
+			{
+				temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+	temp = arr[len / 2];
+	// ft_printf("min: %d\tmax: %d\tmedian: %d\n", min, max, temp);
+	free(arr);
+	return (temp);
 }
