@@ -6,7 +6,7 @@
 /*   By: vgroux <vgroux@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:16:22 by vgroux            #+#    #+#             */
-/*   Updated: 2023/01/19 16:34:17 by vgroux           ###   ########.fr       */
+/*   Updated: 2023/02/28 15:34:43 by vgroux           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@ int	main(int argc, char **argv)
 		arr_to_list(ft_split(argv[1], ' '), &a, 0);
 	else
 		arr_to_list(argv, &a, 1);
-	if (ft_stack_size(a) <= 3)
-		ultra_tiny_sort(&a, &b);
-	else if (ft_stack_size(a) <= 5)
-		tiny_sort(&a, &b);
-	else
-		personalsort(&a, &b);
+	if (!is_sort(a))
+	{
+		if (ft_stack_size(a) <= 3)
+			ultra_tiny_sort(&a, &b);
+		else if (ft_stack_size(a) <= 5)
+			tiny_sort(&a, &b);
+		else
+			personalsort(&a, &b);
+	}
 	ft_stack_clear(&a);
 	ft_stack_clear(&b);
 	return (EXIT_SUCCESS);
